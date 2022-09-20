@@ -6,11 +6,9 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    checkStatus: (state) => {
-      state.push('Under Construction');
-    },
+    checkStatus: () => 'Under Construction',
   },
 });
 
 export default categoriesSlice.reducer;
-export const { ordered } = categoriesSlice.actions;
+export const { checkStatus } = categoriesSlice.actions;
