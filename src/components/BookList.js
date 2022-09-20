@@ -13,6 +13,15 @@ const BookList = (props) => {
     </ul>
   );
 };
+// BookList.defaultProps = {
+//   books: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: '',
+//       title : '',
+//       author: ''
+//     })
+//   )
+// }
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(
