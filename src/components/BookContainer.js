@@ -1,27 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import BooksList from './BookList';
 import BookForm from './BookForm';
+import { fetchBooks } from '../redux/books/books';
 
 const BookContainer = () => {
   const books = useSelector((state) => state.book);
-  // const books = [
-  //   {
-  //     id: 1,
-  //     title: 'The Hunger Games',
-  //     author: 'Suzan Collins',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Harry Potter',
-  //     author: 'J.K.Rowling',
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'The Lord of the Rings',
-  //     author: 'J.R.R. Tolkien',
-  //   },
-  // ];
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [books, dispatch]);
 
   return (
     <>

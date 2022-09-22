@@ -1,18 +1,37 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = [];
+
+// Generates pending, fulfilled and rejected action types
+export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books')
+  .then((response) => {
+    const books = response.data;
+    const data = Object.keys(books).map((id) => ({
+      id: Number(id),
+      title: books[id][0].title,
+      author: books[id][0].author,
+      category: books[id][0].category,
+    }));
+    return data;
+  }));
+
+export const addNewBook = createAsyncThunk('books/addBooks', (book) => {
+  axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books', book)
+    .then((response) => response.status);
+});
+
+export const removeBooks = createAsyncThunk('books/removeBooks', (id) => {
+  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books/${id}`)
+    .then((response) => response.data);
+});
 
 const booksSlice = createSlice({
   name: 'books',
   initialState,
-  // action creators using redux toolkit
-  reducers: {
-    addBook: (state, action) => {
-      state.push(action.payload);
-    },
-    removeBook: (state, action) => state.filter((book) => book.id !== action.payload),
+  extraReducers: (builder) => {
+    builder.addCase(fetchBooks.fulfilled, (state, action) => action.payload);
   },
 });
 
 export default booksSlice.reducer;
-export const { addBook, removeBook } = booksSlice.actions;
