@@ -1,19 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books',
-// {
-//   item_id: 2,
-//   title: "Harry Potter",
-//   author: "JK Rowling",
-//   category: "Fiction"
-// }
-// )
-//   .then((response) => console.log(response.status));
-
-// axios.delete('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books/')
-// .then(response => console.log(response.data))
-
 const initialState = [];
 
 // Generates pending, fulfilled and rejected action types
@@ -48,4 +35,3 @@ const booksSlice = createSlice({
 });
 
 export default booksSlice.reducer;
-export const { addBook, removeBook } = booksSlice.actions;
