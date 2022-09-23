@@ -52,6 +52,7 @@ const Book = (props) => {
           <p className="text-gray-500">CURRENT CHAPTER</p>
           <p>
             CHAPTER
+            {' '}
             {chapterCount}
           </p>
           <button type="button" className="text-stone-200 bg-blue-600 p-2 rounded mt-4">UPDATE PROGRESS</button>
