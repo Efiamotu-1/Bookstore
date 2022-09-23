@@ -7,29 +7,46 @@ const BookForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
+
+  const categories = useSelector((state) => state.categories);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const book = {
-      item_id: books.length + 1,
-      title: name,
-      author,
-      category: '',
-    };
-    setName('');
-    setAuthor('');
-    dispatch(addNewBook(book));
-    dispatch(fetchBooks());
+    if (name !== '' && author !== '') {
+      const book = {
+        item_id: books.length + 1,
+        title: name,
+        author,
+        category,
+      };
+      setName('');
+      setAuthor('');
+      dispatch(addNewBook(book));
+      dispatch(fetchBooks());
+    }
   };
 
   return (
-    <>
-      <h3 style={{ marginTop: '1.5rem' }}>ADD A NEW BOOK</h3>
-      <form style={{ display: 'flex', gap: '1.5rem' }} onSubmit={handleSubmit}>
-        <input type="text" placeholder="Title" name="title" value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="text" placeholder="Author" name="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-        <button type="submit">Add Book</button>
+    <div className="m-1">
+      <h3 className="text-xl text-gray-600 ml-3 font-light">ADD A NEW BOOK</h3>
+      <form onSubmit={handleSubmit} className="d-flex flex-wrap space-evenly container-fluid">
+        <input className="p-2 md:w-5/12 rounded outline-none m-2" type="text" placeholder="Title" name="title" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="p-2 rounded outline-none m-2" type="text" placeholder="Author" name="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        <select className="p-2 rounded outline-none m-2" onChange={(e) => setCategory(e.target.value)}>
+          {
+            categories.map((cat) => (
+              <option
+                key={cat.toString()}
+                value={cat}
+              >
+                {cat}
+              </option>
+            ))
+          }
+        </select>
+        <button className="bg-blue-600 px-5 py-2 text-gray-100 rounded hover:bg-blue-900" type="submit">Add Book</button>
       </form>
-    </>
+    </div>
   );
 };
 
