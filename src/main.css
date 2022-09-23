@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: url(../src/Assets/books-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.Oval {
+    width: 2.813rem;
+    height: 2.813rem;
+    margin: 0 0 0 41.5rem;
+    padding: 0.875rem;
+    border: solid 1px #e8e8e8;
+}
+
+.mask {
+  width: 87.5rem;
+  height: 5.938rem;
+  margin: 0 0 2.375rem;
+  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+  background-color: #fff;
+}
