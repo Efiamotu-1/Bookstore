@@ -1,13 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OZAjHFKg7UtYME9kjmbs/books/';
+
 const initialState = [];
 
 axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/')
   .then((response) => console.log(response.data));
 
 // Generates pending, fulfilled and rejected action types
-export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OZAjHFKg7UtYME9kjmbs/books')
+export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get(baseUrl)
   .then((response) => {
     const books = response.data;
     const data = Object.keys(books).map((id) => ({
@@ -20,12 +22,12 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get('
   }));
 
 export const addNewBook = createAsyncThunk('books/addBooks', (book) => {
-  axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OZAjHFKg7UtYME9kjmbs/books', book)
+  axios.post(baseUrl, book)
     .then((response) => response.status);
 });
 
 export const removeBooks = createAsyncThunk('books/removeBooks', (id) => {
-  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OZAjHFKg7UtYME9kjmbs/books/${id}`)
+  axios.delete(`${baseUrl}${id}`)
     .then((response) => response.data);
 });
 
