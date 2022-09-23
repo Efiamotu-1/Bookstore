@@ -7,10 +7,13 @@
 
 ## Built With
 
-- HTML, SaSS, JavaScript
-- React / Redux
-- Linters:
-  - Stylelint, ESLint
+-  HTML
+-  JavaScript
+-  TailwindCss
+-  React 
+-  Redux Toolkit
+-  Linters: Stylelint, ESLint
+  
 
 ## Live Demo 
 

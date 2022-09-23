@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialState = [];
 
 // Generates pending, fulfilled and rejected action types
-export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books')
+export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/w2wHFPAN8Nuzn3nrqJI6/books')
   .then((response) => {
     const books = response.data;
     const data = Object.keys(books).map((id) => ({
@@ -17,12 +17,12 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get('
   }));
 
 export const addNewBook = createAsyncThunk('books/addBooks', (book) => {
-  axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books', book)
+  axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/w2wHFPAN8Nuzn3nrqJI6/books', book)
     .then((response) => response.status);
 });
 
 export const removeBooks = createAsyncThunk('books/removeBooks', (id) => {
-  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/UULDvvE4EWqYt0Y5rD8Z/books/${id}`)
+  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/w2wHFPAN8Nuzn3nrqJI6/books/${id}`)
     .then((response) => response.data);
 });
 
