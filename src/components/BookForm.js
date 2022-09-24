@@ -14,7 +14,7 @@ const BookForm = () => {
     e.preventDefault();
     if (name !== '' && author !== '') {
       const book = {
-        item_id: books.length * 10,
+        item_id: books.length * 1000,
         title: name,
         author,
         category,
