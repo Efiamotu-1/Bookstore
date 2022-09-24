@@ -5,9 +5,6 @@ const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/book
 
 const initialState = [];
 
-// axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/')
-//   .then((response) => console.log(response.data));
-
 // Generates pending, fulfilled and rejected action types
 export const fetchBooks = createAsyncThunk('books/fetchBooks', () => axios.get(baseUrl)
   .then((response) => {
