@@ -17,7 +17,7 @@
 
 ## Live Demo 
 
-in progess :smile: 
+link to live Demo [Link](https://reactbookstoreapp.netlify.app/)
 
 
 ## Getting Started
