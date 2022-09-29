@@ -8,7 +8,6 @@ const Categories = () => {
   const dispatch = useDispatch();
   return (
     <div className='p-5'>
-      <button type="button" className='bg-blue-600 text-stone-100 p-2 rounded m-3' onClick={() => { dispatch(checkStatus()); }}>Check Status</button>
      <h1 className='text-bold text-xl border-b-2'>BOOKS CATEGORIES</h1> 
 
      {categories.slice(1).map((category, i) => {
