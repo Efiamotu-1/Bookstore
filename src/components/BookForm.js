@@ -27,12 +27,12 @@ const BookForm = () => {
   };
 
   return (
-    <div className="m-1">
-      <h3 className="text-xl text-gray-600 ml-3 font-light">ADD A NEW BOOK</h3>
-      <form onSubmit={handleSubmit} className="d-flex flex-wrap space-evenly container-fluid">
-        <input className="p-2 md:w-5/12 rounded outline-none m-2" type="text" placeholder="Title" name="title" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className="p-2 rounded outline-none m-2" type="text" placeholder="Author" name="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-        <select className="p-2 rounded outline-none m-2" onChange={(e) => setCategory(e.target.value)}>
+    <div className="w-11/12 mx-auto bg-gray-500 p-5 my-3">
+      <h3 className="text-xl text-gray-900 py-1 font-light">ADD A NEW BOOK</h3>
+      <form onSubmit={handleSubmit} className="container-fluid space-x-5">
+        <input className="p-2 md:w-5/12 rounded outline-none " type="text" placeholder="Title" name="title" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="p-2 rounded outline-none " type="text" placeholder="Author" name="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        <select className="p-2 rounded outline-none " onChange={(e) => setCategory(e.target.value)}>
           {
             categories.map((cat) => (
               <option

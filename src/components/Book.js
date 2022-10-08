@@ -35,7 +35,7 @@ const Book = (props) => {
         </li>
       </div>
 
-      <div className="flex md:border-r-2 p-5">
+      <div className="flex mr-4 p-5 pp">
         <div className="progress" />
 
         <div className="flex-column">
