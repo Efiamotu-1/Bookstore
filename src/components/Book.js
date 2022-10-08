@@ -28,7 +28,7 @@ const Book = (props) => {
           </h2>
           <p className="text-blue-900">{author}</p>
           <div className="flex mt-3">
-            <button className="px-3 border-r-2 text-blue-900 hover:text-blue-100" type="button">Comments</button>
+            <button className="pr-3 border-r-2 text-blue-900 hover:text-blue-100" type="button">Comments</button>
             <button className="px-3 border-r-2 text-blue-900 hover:text-blue-100" type="button" onClick={handleClick}>Remove</button>
             <button type="button" className="px-3 text-blue-900 hover:text-blue-100">Edit</button>
           </div>
