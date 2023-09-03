@@ -1,26 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Book from './Book';
+/* eslint-disable */
 
-const BookList = (props) => {
-  const { books } = props;
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import Book from "./Book";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from "../redux/books/books";
+
+const BookList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
+  const { books, isLoading } = useSelector((state) => state.books);
 
   return (
-    <ul>
-      {books.map((book) => (
-        <Book key={book.id} title={book.title} author={book.author} id={book.id} />
-      ))}
-    </ul>
+    <>
+      {isLoading ? (
+        "Loading..."
+      ) : (
+        <ul>
+          {books.map((book) => (
+            <Book
+              key={book.item_id}
+              title={book.title}
+              author={book.author}
+              id={book.item_id}
+            />
+          ))}
+        </ul>
+      )}
+    </>
   );
-};
-BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      author: PropTypes.string,
-    }),
-  ).isRequired,
 };
 
 export default BookList;

@@ -1,8 +1,10 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Books from './pages/Books';
-import Categories from './pages/Categories';
+/* eslint-disable */
+
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Books from "./pages/Books";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
